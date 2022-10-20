@@ -20,7 +20,7 @@ label{
 }
 
 .input-error{
-
+    border: 2px solid rgb(250, 78, 78);
 }
 
 #mensaje{

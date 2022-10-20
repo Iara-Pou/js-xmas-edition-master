@@ -6,11 +6,23 @@ function guardaEdadesIntegrantes(nodeList) {
     return arrayNuevo;
 }
 
+function manejarErrores(textoError, input){
+    imprimirErrores(textoError);
+    aplicarEstilo(input);
+}
 
 function imprimirErrores(error){
     let $ContenedorErrores = document.querySelector("#errores");
     $ContenedorErrores.classList=""
     $ContenedorErrores.textContent = error; 
+}
+
+function aplicarEstilo(input){
+    if(typeof input.value === "string"){
+        input.classList = "input-error";
+    } else {
+        input.forEach(elemento => elemento.classList = "input-error");
+    }
 }
 
 function esconderErrores(){
@@ -62,32 +74,36 @@ let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
 
 $botonCantidad.onclick = function () {
     vaciarContenedor();
-
     const cantidadIntegrantes = document.querySelector("#integrantes").value;
 
     if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
+
         esconderErrores()
+        document.querySelector("#integrantes").classList = "";
+
         crearInputLabels(cantidadIntegrantes, $contenedorInputs);
 
         if ($botonCalcular.classList.contains("oculto")) {
         mostrarBotones();
         }
 
-
     } else {
-        imprimirErrores(validarCantidadIntegrantes(cantidadIntegrantes))
+        const textoError = (validarCantidadIntegrantes(cantidadIntegrantes));
+        manejarErrores(textoError, document.querySelector("#integrantes"));
     }
 
     return false;
 }
 
 $botonCalcular.onclick = function () {
+
     let $mensaje = document.querySelector("#mensaje");
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
         esconderErrores();
-        
+        document.querySelectorAll(".edad").forEach(elemento => elemento.classList = "");
+
         $mensaje.classList = "";
         document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
         document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
@@ -95,7 +111,9 @@ $botonCalcular.onclick = function () {
 
     } else {
         esconderMensaje();        
-        imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes));
+
+        const textoError= validarEdadesIntegrantes(edadesIntegrantes);
+        manejarErrores(textoError, document.querySelectorAll(".edad"));
     }
 
     return false;

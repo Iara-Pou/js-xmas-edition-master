@@ -27,11 +27,12 @@ function devolverMayor(array) {
 }
 
 function validarCantidadIntegrantes(cantidad){
+    
     if (cantidad === ""){
         return "Debe ingresar por lo menos 1 carácter.";
     }
 
-    if(cantidad <=0){
+    if(cantidad <0){
         return "la cantidad debe ser mayor a cero."
     }
 
