@@ -26,6 +26,12 @@ function pruebaValidarCantidadIntegrantes(){
         validarCantidadIntegrantes(-1) === "la cantidad debe ser mayor a cero.",
         "validar cantidad integrantes no valida que la cantidad sea un número positivo."
     )
+
+    console.assert(
+        validarCantidadIntegrantes(1) === "",
+        "validar cantidad integrantes no valida un input correcto."
+    )
+    
 }
 
 function pruebaValidadEdadesIntegrantes(){
@@ -44,6 +50,12 @@ function pruebaValidadEdadesIntegrantes(){
         validarEdadesIntegrantes([3,3.3,4,"aaaaa"]) === "El campo debe tener un número entero ingresado.",
         "validar edades integrantes no valida que las edades sean numeros y no otro tipo de carácter"
     )
+
+    console.assert(
+        validarEdadesIntegrantes([3,22,4]) === "",
+        "validar edades integrantes no valida un caso correcto"
+    )
+
 }
 
 //para la prueba de pasar un array de otro tipo a number, puedo poner que si ingreso [] con string, tiene que incluir Nan el nuevo, con includes()
