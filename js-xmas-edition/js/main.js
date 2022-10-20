@@ -24,6 +24,8 @@ function validarForm(event) {
 
 function manejarErrores(errores) {
 
+    borrarErroresAnteriores();
+
     const llaves = Object.keys(errores);
     let $contenedorErrores = document.querySelector("#errores");
     let contadorErrores = 0;
@@ -45,6 +47,11 @@ function manejarErrores(errores) {
 
     return contadorErrores;
 
+}
+
+function borrarErroresAnteriores(){
+    let $contenedorErrores = document.querySelector("#errores");
+    $contenedorErrores.textContent = "";
 }
 
 const $formulario = document.querySelector("#carta-a-santa");
