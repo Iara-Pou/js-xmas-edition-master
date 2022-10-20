@@ -4,7 +4,6 @@ const $botonReinicio = document.querySelector("#reinicio");
 const $botonReinicioGeneral = document.querySelector("#reinicio-general");
 
 let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
-let $mensaje = document.querySelector("#mensaje");
 
 
 $botonCantidad.onclick = function () {
@@ -27,10 +26,15 @@ $botonCantidad.onclick = function () {
 }
 
 $botonCalcular.onclick = function () {
+    let $mensaje = document.querySelector("#mensaje");
     let edadesIntegrantes = guardarNumerosEnArray(document.querySelectorAll(".edad"));
 
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
-        $mensaje.textContent = `la mayor edad es: ${devolverMayor(edadesIntegrantes)} \n la menor edad es: ${devolverMenor(edadesIntegrantes)} \n y el promedio es: ${calcularPromedio(edadesIntegrantes)}`
+        $mensaje.classList = "";
+
+        document.querySelector("#edad-mayor") = devolverMayor(edadesIntegrantes);
+        document.querySelector("#edad-menor") = devolverMenor(edadesIntegrantes);
+        document.querySelector("#edad-promedio") = devolverPromedio(edadesIntegrantes);
 
     } else {
         alert(validarEdadesIntegrantes(edadesIntegrantes))

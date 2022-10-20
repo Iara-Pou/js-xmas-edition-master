@@ -6,7 +6,7 @@ function guardarNumerosEnArray(nodeList) {
     return arrayNuevo;
 }
 
-function calcularPromedio(array) {
+function devolverPromedio(array) {
     let totalSuma = 0;
     for (let i = 0; i < array.length; i++) {
         totalSuma += array[i];
@@ -52,6 +52,7 @@ function vaciarContenedor(){
     $contenedorInputs.innerHTML = "";
 }
 function vaciarMensaje(){
+    let $mensaje = document.querySelector("#mensaje");
     $mensaje.textContent = "";
 }
 function esconderBotones(){
