@@ -18,8 +18,15 @@ function validarForm(event) {
         $mensajeExito.classList = "";
 
         $formulario.classList = "oculto";
+        redirigir();
     }
     
+}
+
+function redirigir(){
+    setTimeout(function(){
+        window.location.href = "wishlist.html";
+    },5000)
 }
 
 function manejarErrores(errores) {
