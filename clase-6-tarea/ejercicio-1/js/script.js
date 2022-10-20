@@ -40,9 +40,7 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
     } else {
-        vaciarMensaje();
-        $mensaje.classList="oculto"
-        
+        esconderMensaje();        
         imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes))
     }
 
@@ -65,8 +63,7 @@ $botonReinicioGeneral.onclick = function () {
     document.querySelector("#integrantes").value = "";
     esconderBotones();
     vaciarContenedor();
-    vaciarMensaje();
-    document.querySelector("#mensaje").classList = "oculto";
+    esconderMensaje();
 
     return false;
 }
