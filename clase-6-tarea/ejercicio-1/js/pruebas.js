@@ -12,7 +12,7 @@ console.assert(
 
 function pruebaDevolverPromedio(){
 console.assert(
-    calcularPromedio([2,2,2]) === 2, "Calcular promedio no está retornando el promedio del array."
+    devolverPromedio([2,2,2]) === 2, "Calcular promedio no está retornando el promedio del array."
 )    
 }
 
