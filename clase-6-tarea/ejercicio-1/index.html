@@ -19,12 +19,17 @@
         </fieldset>
 
         <div id="contenedor-inputs-nuevos"></div> 
-        <!-- puso id= "integrantes" y no tan largo el nombre -->
+
         <button id="calculo-edades" class="oculto">calcular</button>
         <button id="reinicio" class="oculto" type="reset">reiniciar</button> 
+
     </form>
 
-    <div id="mensaje"></div>
+    <div class="oculto" id="mensaje">
+        <p>La edad mayor es: <strong id="edad-mayor"></strong></p>
+        <p>La edad menor es: <strong id="edad-menor"></strong></p>
+        <p>El promedio de edades es: <strong id="edad-promedio"></strong></p>
+    </div>
       
     <script type="text/javascript" src="./js/calculos.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
