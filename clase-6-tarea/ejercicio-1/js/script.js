@@ -11,14 +11,14 @@ $botonCantidad.onclick = function () {
 
     const cantidadIntegrantes = document.querySelector("#integrantes").value;
 
-    if (cantidadIntegrantes>0 && cantidadIntegrantes !=="") {
+    if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
+        esconderErrores()
         crearInputLabels(cantidadIntegrantes, $contenedorInputs);
 
         if ($botonCalcular.classList.contains("oculto")) {
         mostrarBotones();
         }
 
-        esconderErrores()
 
     } else {
         imprimirErrores(validarCantidadIntegrantes(cantidadIntegrantes))
@@ -32,14 +32,17 @@ $botonCalcular.onclick = function () {
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
+        esconderErrores()
+        
         $mensaje.classList = "";
-
         document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
         document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
-        esconderErrores()
     } else {
+        vaciarMensaje();
+        $mensaje.classList="oculto"
+        
         imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes))
     }
 
@@ -63,6 +66,7 @@ $botonReinicioGeneral.onclick = function () {
     esconderBotones();
     vaciarContenedor();
     vaciarMensaje();
+    document.querySelector("#mensaje").classList = "oculto";
 
     return false;
 }
