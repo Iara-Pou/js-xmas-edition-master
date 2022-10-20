@@ -1,10 +1,64 @@
+function guardaEdadesIntegrantes(nodeList) {
+    const arrayNuevo = [];
+    for (let i = 0; i < nodeList.length; i++) {
+        arrayNuevo[i] = Number(nodeList[i].value);
+    }
+    return arrayNuevo;
+}
+
+
+function imprimirErrores(error){
+    let $ContenedorErrores = document.querySelector("#errores");
+    $ContenedorErrores.classList=""
+    $ContenedorErrores.textContent = error; 
+}
+
+function esconderErrores(){
+    let $ContenedorErrores = document.querySelector("#errores");
+    $ContenedorErrores.classList="oculto"   
+}
+
+function crearInputLabels(cantidadIntegrantes, elementoPadre) {
+    for (let i = 1; i <= cantidadIntegrantes; i++) {
+        let labelNuevo = document.createElement("label");
+        let inputNuevo = document.createElement("input");
+
+        inputNuevo.placeholder = `integrante ${i}`;
+        inputNuevo.classList.add("edad");
+        labelNuevo.textContent = `ingresá su edad: `;
+
+        elementoPadre.appendChild(labelNuevo);
+        labelNuevo.appendChild(inputNuevo);
+    }
+}
+
+function vaciarContenedor(){
+    $contenedorInputs.innerHTML = "";
+}
+
+function esconderMensaje(){
+    let $mensaje = document.querySelector("#mensaje");
+    $mensaje.textContent = "";
+    $mensaje.classList = "oculto";
+
+}
+
+function esconderBotones(){
+    $botonCalcular.classList= "oculto";
+    $botonReinicio.classList= "oculto";
+}
+
+function mostrarBotones(){
+    $botonCalcular.classList= " ";
+    $botonReinicio.classList= " ";
+}
+
 const $botonCantidad = document.querySelector("#boton-cantidad");
 const $botonCalcular = document.querySelector("#calculo-edades");
 const $botonReinicio = document.querySelector("#reinicio");
 const $botonReinicioGeneral = document.querySelector("#reinicio-general");
 
 let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
-
 
 $botonCantidad.onclick = function () {
     vaciarContenedor();
@@ -32,7 +86,7 @@ $botonCalcular.onclick = function () {
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
-        esconderErrores()
+        esconderErrores();
         
         $mensaje.classList = "";
         document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
@@ -41,21 +95,10 @@ $botonCalcular.onclick = function () {
 
     } else {
         esconderMensaje();        
-        imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes))
+        imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes));
     }
 
     return false;
-}
-
-function imprimirErrores(error){
-    let $ContenedorErrores = document.querySelector("#errores");
-    $ContenedorErrores.classList=""
-    $ContenedorErrores.textContent = error; 
-}
-
-function esconderErrores(){
-    let $ContenedorErrores = document.querySelector("#errores");
-    $ContenedorErrores.classList="oculto"   
 }
 
 $botonReinicioGeneral.onclick = function () {
@@ -64,6 +107,7 @@ $botonReinicioGeneral.onclick = function () {
     esconderBotones();
     vaciarContenedor();
     esconderMensaje();
+    esconderErrores();
 
     return false;
 }

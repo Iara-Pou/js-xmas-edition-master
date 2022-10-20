@@ -19,6 +19,10 @@ label{
     border: 2px solid rgb(75, 0, 0);
 }
 
+.input-error{
+
+}
+
 #mensaje{
     padding: 1%;
     margin: 1.5%;

@@ -1,11 +1,3 @@
-function guardaEdadesIntegrantes(nodeList) {
-    const arrayNuevo = [];
-    for (let i = 0; i < nodeList.length; i++) {
-        arrayNuevo[i] = Number(nodeList[i].value);
-    }
-    return arrayNuevo;
-}
-
 function devolverPromedio(array) {
     let totalSuma = 0;
     for (let i = 0; i < array.length; i++) {
@@ -32,38 +24,6 @@ function devolverMayor(array) {
         }
     }
     return numeroMayor;
-}
-
-function crearInputLabels(cantidadIntegrantes, elementoPadre) {
-    for (let i = 1; i <= cantidadIntegrantes; i++) {
-        let labelNuevo = document.createElement("label");
-        let inputNuevo = document.createElement("input");
-
-        inputNuevo.placeholder = `integrante ${i}`;
-        inputNuevo.classList.add("edad");
-        labelNuevo.textContent = `ingresá su edad: `;
-
-        elementoPadre.appendChild(labelNuevo);
-        labelNuevo.appendChild(inputNuevo);
-    }
-}
-
-function vaciarContenedor(){
-    $contenedorInputs.innerHTML = "";
-}
-function esconderMensaje(){
-    let $mensaje = document.querySelector("#mensaje");
-    $mensaje.textContent = "";
-    $mensaje.classList = "oculto";
-
-}
-function esconderBotones(){
-    $botonCalcular.classList= "oculto";
-    $botonReinicio.classList= "oculto";
-}
-function mostrarBotones(){
-    $botonCalcular.classList= " ";
-    $botonReinicio.classList= " ";
 }
 
 function validarCantidadIntegrantes(cantidad){
@@ -95,4 +55,3 @@ function validarEdadesIntegrantes(edades){
 
     return "";
 }
-//el solo hizo mayor, menor y promedio
