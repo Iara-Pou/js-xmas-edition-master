@@ -32,9 +32,9 @@ $botonCalcular.onclick = function () {
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
         $mensaje.classList = "";
 
-        document.querySelector("#edad-mayor") = devolverMayor(edadesIntegrantes);
-        document.querySelector("#edad-menor") = devolverMenor(edadesIntegrantes);
-        document.querySelector("#edad-promedio") = devolverPromedio(edadesIntegrantes);
+        document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
+        document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
+        document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
     } else {
         alert(validarEdadesIntegrantes(edadesIntegrantes))
