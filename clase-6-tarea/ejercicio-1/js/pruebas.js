@@ -41,8 +41,8 @@ function pruebaValidadEdadesIntegrantes(){
     )
 
     console.assert(
-        validarEdadesIntegrantes([3,4,3.3]) === "No debes ingresar ningún número con decimales como edad.",
-        "validar edades integrantes no valida que las edades sean numeros enteros"
+        validarEdadesIntegrantes([3,3.3,4,"aaaaa"]) === "El campo debe tener un número entero ingresado.",
+        "validar edades integrantes no valida que las edades sean numeros y no otro tipo de carácter"
     )
 }
 
