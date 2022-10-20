@@ -86,6 +86,12 @@ function validarEdadesIntegrantes(edades){
     }
 
     for(let i=0; i<edades.length; i++){
+        if(! /^[0-9]$/.test(edades[i])){
+            return "El campo debe tener un número ingresado."
+        }
+    }
+
+    for(let i=0; i<edades.length; i++){
         if(Math.trunc(edades[i]) !== edades[i]){
             return "No debes ingresar ningún número con decimales como edad."
         }
