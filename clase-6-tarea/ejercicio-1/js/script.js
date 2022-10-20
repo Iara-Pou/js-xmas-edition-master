@@ -18,6 +18,8 @@ $botonCantidad.onclick = function () {
         mostrarBotones();
         }
 
+        esconderErrores()
+
     } else {
         imprimirErrores(validarCantidadIntegrantes(cantidadIntegrantes))
     }
@@ -36,6 +38,7 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
+        esconderErrores()
     } else {
         imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes))
     }
@@ -45,7 +48,13 @@ $botonCalcular.onclick = function () {
 
 function imprimirErrores(error){
     let $ContenedorErrores = document.querySelector("#errores");
+    $ContenedorErrores.classList=""
     $ContenedorErrores.textContent = error; 
+}
+
+function esconderErrores(){
+    let $ContenedorErrores = document.querySelector("#errores");
+    $ContenedorErrores.classList="oculto"   
 }
 
 $botonReinicioGeneral.onclick = function () {
