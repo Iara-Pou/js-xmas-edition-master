@@ -51,9 +51,11 @@ function crearInputLabels(cantidadIntegrantes, elementoPadre) {
 function vaciarContenedor(){
     $contenedorInputs.innerHTML = "";
 }
-function vaciarMensaje(){
+function esconderMensaje(){
     let $mensaje = document.querySelector("#mensaje");
     $mensaje.textContent = "";
+    $mensaje.classList = "oculto";
+
 }
 function esconderBotones(){
     $botonCalcular.classList= "oculto";
