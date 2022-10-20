@@ -19,7 +19,7 @@ $botonCantidad.onclick = function () {
         }
 
     } else {
-        alert(validarCantidadIntegrantes(cantidadIntegrantes))
+        imprimirErrores(validarCantidadIntegrantes(cantidadIntegrantes))
     }
 
     return false;
@@ -37,10 +37,15 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
     } else {
-        alert(validarEdadesIntegrantes(edadesIntegrantes))
+        imprimirErrores(validarEdadesIntegrantes(edadesIntegrantes))
     }
 
     return false;
+}
+
+function imprimirErrores(error){
+    let $ContenedorErrores = document.querySelector("#errores");
+    $ContenedorErrores.textContent = error; 
 }
 
 $botonReinicioGeneral.onclick = function () {
