@@ -27,7 +27,7 @@ $botonCantidad.onclick = function () {
 
 $botonCalcular.onclick = function () {
     let $mensaje = document.querySelector("#mensaje");
-    let edadesIntegrantes = guardarNumerosEnArray(document.querySelectorAll(".edad"));
+    let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
         $mensaje.classList = "";

@@ -1,4 +1,4 @@
-function guardarNumerosEnArray(nodeList) {
+function guardaEdadesIntegrantes(nodeList) {
     const arrayNuevo = [];
     for (let i = 0; i < nodeList.length; i++) {
         arrayNuevo[i] = Number(nodeList[i].value);
