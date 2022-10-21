@@ -33,7 +33,11 @@ function validarCantidadIntegrantes(cantidad){
     }
 
     if(cantidad <0){
-        return "la cantidad debe ser mayor a cero."
+        return "La cantidad debe ser mayor a cero."
+    }
+
+    if(! /^[0-9]+$/.test(cantidad)){
+        return "La cantidad debe ser un número entero."
     }
 
     return "";

@@ -44,7 +44,7 @@ function crearInputLabels(cantidadIntegrantes, elementoPadre) {
     }
 }
 
-function vaciarContenedor(){
+function vaciarContenedorInputs(){
     $contenedorInputs.innerHTML = "";
 }
 
@@ -52,7 +52,6 @@ function esconderMensaje(){
     let $mensaje = document.querySelector("#mensaje");
     $mensaje.textContent = "";
     $mensaje.classList = "oculto";
-
 }
 
 function esconderBotones(){
@@ -73,7 +72,7 @@ const $botonReinicioGeneral = document.querySelector("#reinicio-general");
 let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
 
 $botonCantidad.onclick = function () {
-    vaciarContenedor();
+    vaciarContenedorInputs();
     const cantidadIntegrantes = document.querySelector("#integrantes").value;
 
     if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
@@ -123,7 +122,7 @@ $botonReinicioGeneral.onclick = function () {
 
     document.querySelector("#integrantes").value = "";
     esconderBotones();
-    vaciarContenedor();
+    vaciarContenedorInputs();
     esconderMensaje();
     esconderErrores();
 

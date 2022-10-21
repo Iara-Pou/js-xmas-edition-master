@@ -17,6 +17,7 @@ console.assert(
 }
 
 function pruebaValidarCantidadIntegrantes(){
+
     console.assert(
         validarCantidadIntegrantes("") === "Debe ingresar por lo menos 1 carácter.", 
         "validar cantidad integrantes no valida el caso en el que el usuario no ingresa nada al input."
@@ -28,13 +29,18 @@ function pruebaValidarCantidadIntegrantes(){
     )
 
     console.assert(
+        validarCantidadIntegrantes(1,1) === "La cantidad debe ser un número entero.",
+        "validar cantidad integrantes no valida que la cantidad sea un número entero."
+    )
+
+    console.assert(
         validarCantidadIntegrantes(1) === "",
         "validar cantidad integrantes no valida un input correcto."
     )
     
 }
 
-function pruebaValidadEdadesIntegrantes(){
+function pruebaValidarEdadesIntegrantes(){
 
     console.assert(
         validarEdadesIntegrantes([0,5,60]) === "Todos los campos deben tener un valor ingresado.",
@@ -64,5 +70,5 @@ pruebaDevolverMayor();
 pruebaDevolverMenor();
 pruebaDevolverPromedio();
 pruebaValidarCantidadIntegrantes();
-pruebaValidadEdadesIntegrantes();
+pruebaValidarEdadesIntegrantes();
 
