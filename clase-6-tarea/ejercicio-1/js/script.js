@@ -50,7 +50,6 @@ function vaciarContenedorInputs(){
 
 function esconderMensaje(){
     let $mensaje = document.querySelector("#mensaje");
-    $mensaje.textContent = "";
     $mensaje.classList = "oculto";
 }
 
