@@ -32,7 +32,7 @@ function validarCantidadIntegrantes(cantidad){
         return "Debe ingresar por lo menos 1 carácter.";
     }
 
-    if(cantidad <0){
+    if(cantidad < 0){
         return "La cantidad debe ser mayor a cero."
     }
 

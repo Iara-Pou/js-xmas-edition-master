@@ -24,12 +24,12 @@ function pruebaValidarCantidadIntegrantes(){
     )
 
     console.assert(
-        validarCantidadIntegrantes(-1) === "la cantidad debe ser mayor a cero.",
+        validarCantidadIntegrantes(-1) === "La cantidad debe ser mayor a cero.",
         "validar cantidad integrantes no valida que la cantidad sea un número positivo."
     )
 
     console.assert(
-        validarCantidadIntegrantes(1,1) === "La cantidad debe ser un número entero.",
+        validarCantidadIntegrantes(1.1) === "La cantidad debe ser un número entero.",
         "validar cantidad integrantes no valida que la cantidad sea un número entero."
     )
 
