@@ -21,7 +21,7 @@ function aplicarEstilo(input){
     if(typeof input.value === "string"){
         input.classList = "input-error";
     } else {
-        input.forEach(input => input.classList = "input-error");
+        input.forEach(input => input.classList.add("input-error"));
     }
 }
 
@@ -98,10 +98,10 @@ $botonCalcular.onclick = function () {
 
     let $mensaje = document.querySelector("#mensaje");
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
-
+    
     if (!validarEdadesIntegrantes(edadesIntegrantes)) {
         esconderErrores();
-        document.querySelectorAll(".edad").forEach(elemento => elemento.classList = "");
+        document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
         $mensaje.classList = "";
         document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
