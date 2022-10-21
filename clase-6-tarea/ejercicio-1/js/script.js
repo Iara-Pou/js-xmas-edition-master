@@ -21,7 +21,7 @@ function aplicarEstilo(input){
     if(typeof input.value === "string"){
         input.classList = "input-error";
     } else {
-        input.forEach(elemento => elemento.classList = "input-error");
+        input.forEach(input => input.classList = "input-error");
     }
 }
 
