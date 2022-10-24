@@ -1,7 +1,7 @@
 function devolverPromedio(array) {
     let totalSuma = 0;
     for (let i = 0; i < array.length; i++) {
-        totalSuma += array[i];
+        totalSuma += Number(array[i]);
     }
     return totalSuma / array.length;
 }
@@ -10,7 +10,7 @@ function devolverMenor(array) {
     let numeroMenor = array[0];
     for (let i = 0; i < array.length; i++) {
         if (array[i] < numeroMenor) {
-            numeroMenor = array[i];
+            numeroMenor = Number(array[i]);
         }
     }
     return numeroMenor;
@@ -20,7 +20,7 @@ function devolverMayor(array) {
     let numeroMayor = array[0];
     for (let i = 0; i < array.length; i++) {
         if (array[i] > numeroMayor) {
-            numeroMayor = array[i];
+            numeroMayor = Number(array[i]);
         }
     }
     return numeroMayor;
@@ -44,7 +44,8 @@ function validarCantidadIntegrantes(cantidad){
 }
 
 function validarEdadesIntegrantes(edades){
-    if (edades.includes(0)){
+
+    if (Array.from(edades).includes(0)){
         return "Todos los campos deben tener un valor ingresado."
     }
 
