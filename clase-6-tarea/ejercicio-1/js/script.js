@@ -1,3 +1,13 @@
+function conseguirInputPorValor(valor){
+    const $inputs = document.getElementsByTagName("input");
+    let resultado = [];
+    for(let i=0; i<$inputs.length; i++)
+        if($inputs[i].value === valor)
+            resultado.push($inputs[i]);
+
+    return resultado;
+}
+
 function guardaEdadesIntegrantes(nodeList) {
     const arrayNuevo = [];
     for (let i = 0; i < nodeList.length; i++) {
@@ -6,28 +16,28 @@ function guardaEdadesIntegrantes(nodeList) {
     return arrayNuevo;
 }
 
-function manejarErrores(textoError, input){
+function manejarErrores(textoError, input) {
     imprimirErrores(textoError);
     aplicarEstilo(input);
 }
 
-function imprimirErrores(error){
+function imprimirErrores(error) {
     let $ContenedorErrores = document.querySelector("#errores");
-    $ContenedorErrores.classList=""
-    $ContenedorErrores.textContent = error; 
+    $ContenedorErrores.classList = ""
+    $ContenedorErrores.textContent = error;
 }
 
-function aplicarEstilo(input){
-    if(typeof input.value === "string"){
-        input.classList = "input-error";
-    } else {
-        input.forEach(input => input.classList.add("input-error"));
+function aplicarEstilo(input) {
+    if (typeof input === "string"){
+        input.classList.add("input-error");  
+    } else{
+        input.forEach(input => input.classList.add("input-error"))
     }
 }
 
-function esconderErrores(){
+function esconderErrores() {
     let $ContenedorErrores = document.querySelector("#errores");
-    $ContenedorErrores.classList="oculto"   
+    $ContenedorErrores.classList = "oculto"
 }
 
 function crearInputLabels(cantidadIntegrantes, elementoPadre) {
@@ -44,7 +54,7 @@ function crearInputLabels(cantidadIntegrantes, elementoPadre) {
     }
 }
 
-function vaciarContenedorInputs(){
+function vaciarContenedorInputs() {
     $contenedorInputs.innerHTML = "";
 }
 
@@ -53,14 +63,14 @@ function esconderMensaje(){
     $mensaje.classList = "oculto";
 }
 
-function esconderBotones(){
-    $botonCalcular.classList= "oculto";
-    $botonReinicio.classList= "oculto";
+function esconderBotones() {
+    $botonCalcular.classList = "oculto";
+    $botonReinicio.classList = "oculto";
 }
 
-function mostrarBotones(){
-    $botonCalcular.classList= " ";
-    $botonReinicio.classList= " ";
+function mostrarBotones() {
+    $botonCalcular.classList = " ";
+    $botonReinicio.classList = " ";
 }
 
 const $botonCantidad = document.querySelector("#boton-cantidad");
@@ -82,12 +92,13 @@ $botonCantidad.onclick = function () {
         crearInputLabels(cantidadIntegrantes, $contenedorInputs);
 
         if ($botonCalcular.classList.contains("oculto")) {
-        mostrarBotones();
+            mostrarBotones();
         }
 
     } else {
         const textoError = (validarCantidadIntegrantes(cantidadIntegrantes));
         manejarErrores(textoError, document.querySelector("#integrantes"));
+
     }
 
     return false;
@@ -97,8 +108,21 @@ $botonCalcular.onclick = function () {
 
     let $mensaje = document.querySelector("#mensaje");
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
-    
-    if (!validarEdadesIntegrantes(edadesIntegrantes)) {
+
+    const erroresEdades = {};
+    let contadorErrores = 0;
+
+    edadesIntegrantes.forEach(edad => {
+        if (validarEdadIntegrante(edad)) {
+            erroresEdades[edad] = validarEdadIntegrante(edad);
+            contadorErrores++;
+        }
+    })
+
+    let esExito = contadorErrores === 0;
+
+    if (esExito) {
+
         esconderErrores();
         document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
@@ -108,10 +132,15 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
 
     } else {
-        esconderMensaje();        
 
-        const textoError= validarEdadesIntegrantes(edadesIntegrantes);
-        manejarErrores(textoError, document.querySelectorAll(".edad"));
+
+        const keysErrores= Object.keys(erroresEdades);
+
+        keysErrores.forEach( key => {
+                manejarErrores(erroresEdades[key], conseguirInputPorValor(key))
+            }
+        ) 
+
     }
 
     return false;
