@@ -43,25 +43,6 @@ function validarCantidadIntegrantes(cantidad){
     return "";
 }
 
-function validarEdadesIntegrantes(edades){
-
-    if (Array.from(edades).includes(0)){
-        return "Todos los campos deben tener un valor ingresado."
-    }
-
-    if( devolverMenor(edades) < 0){
-        return "No debes ingresar ningún número negativo como edad"
-    }
-
-    for(let i=0; i<edades.length; i++){
-        if(! /^[0-9]+$/.test(edades[i])){
-            return "El campo debe tener un número entero ingresado."
-        }
-    }
-
-    return "";
-}
-
 function validarEdadIntegrante(edad){
     
     if (edad <= 0){

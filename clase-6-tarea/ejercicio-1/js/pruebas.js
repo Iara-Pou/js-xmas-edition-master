@@ -40,27 +40,8 @@ function pruebaValidarCantidadIntegrantes(){
     
 }
 
-function pruebaValidarEdadesIntegrantes(){
 
-    console.assert(
-        validarEdadesIntegrantes([0,5,60]) === "Todos los campos deben tener un valor ingresado.",
-        "validar edades integrantes no filtra que todas las edades tengan un valor ingresado, distinto a 0"
-    )
 
-    console.assert(
-        validarEdadesIntegrantes([-4,-6,7]) === "No debes ingresar ningún número negativo como edad",
-        "validar edades integrantes no valida que las edades sean numeros positivos"
-    )
-
-    console.assert(
-        validarEdadesIntegrantes([3,3.3,4,"aaaaa"]) === "El campo debe tener un número entero ingresado.",
-        "validar edades integrantes no valida que las edades sean numeros y no otro tipo de carácter"
-    )
-
-    console.assert(
-        validarEdadesIntegrantes([3,22,4]) === "",
-        "validar edades integrantes no valida un caso correcto"
-    )
 
 }
 
@@ -70,5 +51,5 @@ pruebaDevolverMayor();
 pruebaDevolverMenor();
 pruebaDevolverPromedio();
 pruebaValidarCantidadIntegrantes();
-pruebaValidarEdadesIntegrantes();
+pruebaValidarEdadIntegrante();
 
