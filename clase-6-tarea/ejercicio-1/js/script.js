@@ -58,7 +58,7 @@ function vaciarContenedorInputs() {
     $contenedorInputs.innerHTML = "";
 }
 
-function esconderMensaje(){
+function esconderMensajeFinal() {
     let $mensaje = document.querySelector("#mensaje");
     $mensaje.classList = "oculto";
 }
@@ -133,6 +133,7 @@ $botonCalcular.onclick = function () {
 
     } else {
 
+        esconderMensajeFinal();
 
         const keysErrores= Object.keys(erroresEdades);
 
@@ -151,7 +152,7 @@ $botonReinicioGeneral.onclick = function () {
     document.querySelector("#integrantes").value = "";
     esconderBotones();
     vaciarContenedorInputs();
-    esconderMensaje();
+    esconderMensajeFinal();
     esconderErrores();
 
     return false;
