@@ -40,8 +40,21 @@ function pruebaValidarCantidadIntegrantes(){
     
 }
 
+function pruebaValidarEdadIntegrante(){
+console.assert(
+    validarEdadIntegrante(-9) === "Todos los campos deben tener un numero positivo ingresado.", 
+    "validar edad integrante no valida que la edad sea mayor a 0."
+)
 
+console.assert(
+    validarEdadIntegrante("aaaaaa") === "El campo debe tener un número entero ingresado.",
+    "validar edad integrante no valida que la edad sea un número."
+)
 
+console.assert(
+    validarEdadIntegrante(8) === "",
+    "validar edad integrante no valida una edad correcta."
+)
 
 }
 
