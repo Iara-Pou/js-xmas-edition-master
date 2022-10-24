@@ -60,3 +60,16 @@ function validarEdadesIntegrantes(edades){
 
     return "";
 }
+
+function validarEdadIntegrante(edad){
+    
+    if (edad <= 0){
+        return "Todos los campos deben tener un valor ingresado."
+    }
+
+    if(! /^[0-9]+$/.test(edad)){
+        return "El campo debe tener un número entero ingresado."
+    }
+
+    return "";
+}
