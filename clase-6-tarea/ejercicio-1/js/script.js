@@ -28,7 +28,7 @@ function imprimirErrores(error) {
 }
 
 function aplicarEstilo(input) {
-    if (typeof input === "string"){
+    if (typeof input.value === "string"){
         input.classList.add("input-error");  
     } else{
         input.forEach(input => input.classList.add("input-error"))
