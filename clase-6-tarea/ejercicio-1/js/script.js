@@ -87,6 +87,8 @@ $botonCantidad.onclick = function () {
     if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
 
         esconderErrores()
+        esconderMensajeFinal()
+        
         document.querySelector("#integrantes").classList = "";
 
         crearInputLabels(cantidadIntegrantes, $contenedorInputs);
@@ -124,6 +126,8 @@ $botonCalcular.onclick = function () {
     if (esExito) {
 
         esconderErrores();
+        esconderBotones();
+
         document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
         $mensaje.classList = "";
