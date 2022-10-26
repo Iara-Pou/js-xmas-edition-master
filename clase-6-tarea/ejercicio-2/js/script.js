@@ -36,7 +36,7 @@ $botonReiniciar.onclick = function () {
 
 $botonCalcular.onclick= function(){
     const $mensaje = document.querySelector("#calculo");
-    let salarios = guardarNumerosEnArray(document.querySelectorAll(".salario"));
+    let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
     if(devolverMayor(salarios)!==0 && devolverMenor(salarios)!==0){
         document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
