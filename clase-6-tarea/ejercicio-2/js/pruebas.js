@@ -22,15 +22,8 @@ function pruebaDevolverPromedioMensual(){
     )    
 }
 
-function pruebaGuardarNumerosEnArray(){
-    console.assert(
-        guardarNumerosEnArray(["1","aaa"]) === [1, NaN],
-        "Guardar numeros en array no está convirtiendo el array a numeros."
-    )
-}
-
 pruebaDevolverMayor();
 pruebaDevolverMenor();
 pruebaDevolverPromedio();
 pruebaDevolverPromedioMensual();
-pruebaGuardarNumerosEnArray();
+
