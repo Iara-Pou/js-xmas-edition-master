@@ -27,11 +27,11 @@ function crearInputLabels(elementoPadre) {
 }
 
 function guardarSalariosEnArray(inputs) {
-    const arrayNumeros = [];
+    const array = [];
     for (let i = 0; i < inputs.length; i++) {
-        arrayNumeros[i] = inputs[i].value;
+        array[i] = inputs[i].value;
     }
-    return arrayNumeros;
+    return array;
 }
 
 function conseguirInputPorValor(valor){
