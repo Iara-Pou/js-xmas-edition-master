@@ -38,6 +38,11 @@ $botonReiniciar.onclick = function () {
 }
 
 $botonSumarIntegrante.onclick = function () {
+    
+    if($mensaje.innerHTML!== ""){
+        esconderMensaje();
+    }
+    
     crearInputLabels($contenedor);
     mostrarBotonCalcular(); 
 
@@ -45,6 +50,7 @@ $botonSumarIntegrante.onclick = function () {
 }
 
 function crearInputLabels(elementoPadre) {
+
     let labelNuevo = document.createElement("label");
     let inputNuevo = document.createElement("input");
 
