@@ -34,6 +34,15 @@ function guardarSalariosEnArray(inputs) {
     return arrayNumeros;
 }
 
+function conseguirInputPorValor(valor){
+    const $inputs = document.querySelectorAll("input");
+    let resultado = [];
+    for(let i=0; i<$inputs.length; i++)
+        if($inputs[i].value === valor)
+            resultado.push($inputs[i]);
+            
+    return resultado;
+}
 
 const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
 const $mensaje = document.querySelector("#calculo");
@@ -122,12 +131,4 @@ function manejarErrores(erroresSalarios) {
 
 }
 
-function conseguirInputPorValor(valor){
-    const $inputs = document.getElementsByTagName("input");
-    let resultado = [];
-    for(let i=0; i<$inputs.length; i++)
-        if($inputs[i].value === valor)
-            resultado.push($inputs[i]);
-            
-    return resultado;
-}
+
