@@ -29,7 +29,7 @@ function crearInputLabels(elementoPadre) {
 function guardarSalariosEnArray(inputs) {
     const arrayNumeros = [];
     for (let i = 0; i < inputs.length; i++) {
-        arrayNumeros[i] = Number(inputs[i].value);
+        arrayNumeros[i] = inputs[i].value;
     }
     return arrayNumeros;
 }
@@ -102,16 +102,32 @@ function manejarErrores(erroresSalarios) {
 
     salarios.forEach(salario => {
         const error = erroresSalarios[salario];
+
         if (error) {
             contadorErrores++;
 
             let textoError = document.createElement("p");
             textoError.textContent= error;
             $contenedorErrores.appendChild(textoError);
+            
+            conseguirInputPorValor(salario).forEach(error => error.classList.add("error"));
 
+        } else {
+            conseguirInputPorValor(salario).forEach(error => error.classList.remove("error"));
         }
+
     })
 
     return contadorErrores;
 
+}
+
+function conseguirInputPorValor(valor){
+    const $inputs = document.getElementsByTagName("input");
+    let resultado = [];
+    for(let i=0; i<$inputs.length; i++)
+        if($inputs[i].value === valor)
+            resultado.push($inputs[i]);
+            
+    return resultado;
 }
