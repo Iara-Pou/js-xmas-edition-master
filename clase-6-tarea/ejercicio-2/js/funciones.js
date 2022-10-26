@@ -1,6 +1,3 @@
-
-
-
 function calcularPromedio(array) {
     let totalSuma = 0;
     let contador= 0;

@@ -1,11 +1,3 @@
-const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
-const $mensaje = document.querySelector("#calculo");
-
-const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
-const $botonQuitarIntegrante = document.querySelector("#restar-integrante");
-const $botonCalcular = document.querySelector("#calcular-salario");
-const $botonReiniciar = document.querySelector("#reiniciar")
-
 function mostrarBotonCalcular(){
     $botonCalcular.classList.remove("oculto");
 }
@@ -21,6 +13,35 @@ function borrarElementos(){
 function esconderMensaje(){
     $mensaje.classList.add("oculto");
 }
+
+function crearInputLabels(elementoPadre) {
+
+    let labelNuevo = document.createElement("label");
+    let inputNuevo = document.createElement("input");
+
+    inputNuevo.classList.add("salario");
+    labelNuevo.textContent = `ingresá su salario anual: `;
+
+    elementoPadre.appendChild(labelNuevo);
+    labelNuevo.appendChild(inputNuevo);
+}
+
+function guardarSalariosEnArray(inputs) {
+    const arrayNumeros = [];
+    for (let i = 0; i < inputs.length; i++) {
+        arrayNumeros[i] = Number(inputs[i].value);
+    }
+    return arrayNumeros;
+}
+
+
+const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
+const $mensaje = document.querySelector("#calculo");
+
+const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
+const $botonQuitarIntegrante = document.querySelector("#restar-integrante");
+const $botonCalcular = document.querySelector("#calcular-salario");
+const $botonReiniciar = document.querySelector("#reiniciar")
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild($contenedor.lastChild);
@@ -49,18 +70,6 @@ $botonSumarIntegrante.onclick = function () {
     return false;
 }
 
-function crearInputLabels(elementoPadre) {
-
-    let labelNuevo = document.createElement("label");
-    let inputNuevo = document.createElement("input");
-
-    inputNuevo.classList.add("salario");
-    labelNuevo.textContent = `ingresá su salario anual: `;
-
-    elementoPadre.appendChild(labelNuevo);
-    labelNuevo.appendChild(inputNuevo);
-}
-
 $botonCalcular.onclick= function(){
     let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
@@ -80,12 +89,3 @@ $botonCalcular.onclick= function(){
 
     return false;
 }
-
-function guardarSalariosEnArray(inputs) {
-    const arrayNumeros = [];
-    for (let i = 0; i < inputs.length; i++) {
-        arrayNumeros[i] = Number(inputs[i].value);
-    }
-    return arrayNumeros;
-}
-
