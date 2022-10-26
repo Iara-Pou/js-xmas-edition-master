@@ -21,8 +21,10 @@ $botonSumarIntegrante.onclick = function () {
 }
 
 $botonQuitarIntegrante.onclick = function () {
-    $contenedor.removeChild();
-    esconderBotonCalcular();
+    $contenedor.removeChild($contenedor.lastChild);
+        if($contenedor.innerHTML === ""){
+            esconderBotonCalcular();
+        }
     return false;
 }
 
