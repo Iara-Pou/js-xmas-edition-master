@@ -29,7 +29,7 @@ $botonQuitarIntegrante.onclick = function () {
 }
 
 $botonReiniciar.onclick = function () {
-    $contenedor.removeChild();
+    $contenedor.innerHTML="";
     esconderBotonCalcular();
     return false;
 }
