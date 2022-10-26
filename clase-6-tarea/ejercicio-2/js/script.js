@@ -73,7 +73,10 @@ $botonSumarIntegrante.onclick = function () {
 $botonCalcular.onclick= function(){
     let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
-    if(devolverMayor(salarios)!==0 && devolverMenor(salarios)!==0){
+    let erroresSalarios = {};
+    salarios.forEach(salario=>{
+        erroresSalarios[salario] = validarSalario(salario);
+    })
 
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
