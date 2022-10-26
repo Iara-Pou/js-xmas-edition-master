@@ -18,6 +18,9 @@ function borrarElementos(){
     $contenedor.innerHTML = "";
 }
 
+function esconderMensaje(){
+    $mensaje.classList.add("oculto");
+}
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild($contenedor.lastChild);
@@ -30,6 +33,7 @@ $botonQuitarIntegrante.onclick = function () {
 $botonReiniciar.onclick = function () {
     borrarElementos();
     esconderBotonCalcular();
+    esconderMensaje();
     return false;
 }
 
