@@ -1,4 +1,5 @@
 const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
+const $mensaje = document.querySelector("#calculo");
 
 const $botonSumarIntegrante = document.querySelector("#sumar-integrante");
 const $botonQuitarIntegrante = document.querySelector("#restar-integrante");
@@ -13,6 +14,10 @@ function esconderBotonCalcular(){
     $botonCalcular.classList.add("oculto");
 }
 
+function borrarElementos(){
+    $contenedor.innerHTML = "";
+}
+
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild($contenedor.lastChild);
@@ -23,7 +28,7 @@ $botonQuitarIntegrante.onclick = function () {
 }
 
 $botonReiniciar.onclick = function () {
-    $contenedor.innerHTML="";
+    borrarElementos();
     esconderBotonCalcular();
     return false;
 }
@@ -47,16 +52,19 @@ function crearInputLabels(elementoPadre) {
 }
 
 $botonCalcular.onclick= function(){
-    const $mensaje = document.querySelector("#calculo");
     let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
     if(devolverMayor(salarios)!==0 && devolverMenor(salarios)!==0){
+
+        $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
         document.querySelector("#menor-salario").textContent = devolverMenor(salarios);
-        document.querySelector("#salario-promedio").textContent = calcularPromedio(salarios);
-        document.querySelector("#salario-mensual-promedio").textContent = calcularPromedioMensual(salarios);
-        $mensaje.classList.toggle("oculto");
-        $botonCalcular.classList.toggle("oculto");
+        document.querySelector("#promedio-salario").textContent = calcularPromedio(salarios);
+        document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
+
+        esconderBotonCalcular();
+        borrarElementos();
+
     } else {
         alert("No ingresaste todos los salarios")
     }
