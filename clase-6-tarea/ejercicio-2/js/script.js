@@ -13,12 +13,6 @@ function esconderBotonCalcular(){
     $botonCalcular.classList.add("oculto");
 }
 
-$botonSumarIntegrante.onclick = function () {
-    crearInputLabels($contenedor);
-    mostrarBotonCalcular(); 
-
-    return false;
-}
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild($contenedor.lastChild);
@@ -32,6 +26,24 @@ $botonReiniciar.onclick = function () {
     $contenedor.innerHTML="";
     esconderBotonCalcular();
     return false;
+}
+
+$botonSumarIntegrante.onclick = function () {
+    crearInputLabels($contenedor);
+    mostrarBotonCalcular(); 
+
+    return false;
+}
+
+function crearInputLabels(elementoPadre) {
+    let labelNuevo = document.createElement("label");
+    let inputNuevo = document.createElement("input");
+
+    inputNuevo.classList.add("salario");
+    labelNuevo.textContent = `ingresá su salario anual: `;
+
+    elementoPadre.appendChild(labelNuevo);
+    labelNuevo.appendChild(inputNuevo);
 }
 
 $botonCalcular.onclick= function(){
@@ -50,5 +62,13 @@ $botonCalcular.onclick= function(){
     }
 
     return false;
+}
+
+function guardarSalariosEnArray(inputs) {
+    const arrayNumeros = [];
+    for (let i = 0; i < inputs.length; i++) {
+        arrayNumeros[i] = Number(inputs[i].value);
+    }
+    return arrayNumeros;
 }
 

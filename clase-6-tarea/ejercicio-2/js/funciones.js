@@ -1,29 +1,5 @@
-function crearInputLabels(elementoPadre) {
-    let labelNuevo = document.createElement("label");
-    let inputNuevo = document.createElement("input");
 
-    inputNuevo.classList.add("salario");
-    labelNuevo.textContent = `ingresá su salario anual: `;
 
-    elementoPadre.appendChild(labelNuevo);
-    labelNuevo.appendChild(inputNuevo);
-}
-
-function guardarSalariosEnArray(inputs) {
-    const arrayNumeros = [];
-    for (let i = 0; i < inputs.length; i++) {
-        arrayNumeros[i] = Number(inputs[i].value);
-    }
-    return arrayNumeros;
-}
-
-function guardarValoresDeNodeList(nodeList){
-    const arrayValores = [];
-    for (let i = 0; i < nodeList.length; i++) {
-        arrayNuevo[i] = nodeList[i].value;
-    }
-    return arrayValores;
-}
 
 function calcularPromedio(array) {
     let totalSuma = 0;
