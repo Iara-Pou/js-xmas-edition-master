@@ -36,11 +36,11 @@ function devolverMayor(array) {
 }
 
 function validarSalario(salario){
-    if(salario===""){
+    if(salario === ""){
         return "Todos los campos deben estar completos.";
     }
 
-    if(salario<=0){
+    if(salario <=0){
         return "El campo debe ser mayor a 0.";
     }
 
