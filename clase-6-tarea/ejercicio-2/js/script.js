@@ -42,7 +42,7 @@ $botonSumarIntegrante.onclick = function () {
     if($mensaje.innerHTML!== ""){
         esconderMensaje();
     }
-    
+
     crearInputLabels($contenedor);
     mostrarBotonCalcular(); 
 
@@ -73,7 +73,6 @@ $botonCalcular.onclick= function(){
         document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
 
         esconderBotonCalcular();
-        borrarElementos();
 
     } else {
         alert("No ingresaste todos los salarios")
