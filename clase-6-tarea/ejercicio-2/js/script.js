@@ -1,16 +1,16 @@
-function mostrarBotonCalcular(){
+function mostrarBotonCalcular() {
     $botonCalcular.classList.remove("oculto");
 }
 
-function esconderBotonCalcular(){
+function esconderBotonCalcular() {
     $botonCalcular.classList.add("oculto");
 }
 
-function borrarElementos(){
+function borrarElementos() {
     $contenedor.innerHTML = "";
 }
 
-function esconderMensaje(){
+function esconderMensaje() {
     $mensaje.classList.add("oculto");
 }
 
@@ -45,9 +45,9 @@ const $botonReiniciar = document.querySelector("#reiniciar")
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild($contenedor.lastChild);
-        if($contenedor.innerHTML === ""){
-            esconderBotonCalcular();
-        }
+    if ($contenedor.innerHTML === "") {
+        esconderBotonCalcular();
+    }
     return false;
 }
 
@@ -59,18 +59,18 @@ $botonReiniciar.onclick = function () {
 }
 
 $botonSumarIntegrante.onclick = function () {
-    
-    if($mensaje.innerHTML!== ""){
+
+    if ($mensaje.innerHTML !== "") {
         esconderMensaje();
     }
 
     crearInputLabels($contenedor);
-    mostrarBotonCalcular(); 
+    mostrarBotonCalcular();
 
     return false;
 }
 
-$botonCalcular.onclick= function(){
+$botonCalcular.onclick = function () {
     let salarios = guardarSalariosEnArray(document.querySelectorAll(".salario"));
 
     let erroresSalarios = {};
