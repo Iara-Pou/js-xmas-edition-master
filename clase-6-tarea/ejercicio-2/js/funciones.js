@@ -44,7 +44,7 @@ function validarSalario(salario){
         return "El campo debe ser mayor a 0.";
     }
 
-    if(!/^[0-9]$/.test(Math.trunc(salario))){
+    if(! /^[0-9]+$/.test(Math.trunc(salario))){
         return "El campo debe ser un número.";
     }
 
