@@ -44,6 +44,10 @@ function conseguirInputPorValor(valor){
     return resultado;
 }
 
+function borrarErroresAnteriores(){
+    document.querySelector("#errores").textContent = "";
+}
+
 const $contenedor = document.querySelector("#contenedor-inputs-nuevos")
 const $mensaje = document.querySelector("#calculo");
 
@@ -105,6 +109,8 @@ $botonCalcular.onclick = function () {
 }
 
 function manejarErrores(erroresSalarios) {
+    borrarErroresAnteriores();
+
     let $contenedorErrores = document.querySelector("#errores")
     let contadorErrores = 0;
     const salarios = Object.keys(erroresSalarios);
