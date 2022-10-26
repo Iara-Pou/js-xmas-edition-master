@@ -78,6 +78,10 @@ $botonCalcular.onclick = function () {
         erroresSalarios[salario] = validarSalario(salario);
     })
 
+    let esExito = manejarErrores(erroresSalarios) === 0;
+
+    if (esExito) {
+
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
         document.querySelector("#menor-salario").textContent = devolverMenor(salarios);
@@ -86,9 +90,28 @@ $botonCalcular.onclick = function () {
 
         esconderBotonCalcular();
 
-    } else {
-        alert("No ingresaste todos los salarios")
-    }
+    } 
 
     return false;
+}
+
+function manejarErrores(erroresSalarios) {
+    let $contenedorErrores = document.querySelector("#errores")
+    let contadorErrores = 0;
+    const salarios = Object.keys(erroresSalarios);
+
+    salarios.forEach(salario => {
+        const error = erroresSalarios[salario];
+        if (error) {
+            contadorErrores++;
+
+            let textoError = document.createElement("p");
+            textoError.textContent= error;
+            $contenedorErrores.appendChild(textoError);
+
+        }
+    })
+
+    return contadorErrores;
+
 }
