@@ -5,19 +5,30 @@ const $botonQuitarIntegrante = document.querySelector("#restar-integrante");
 const $botonCalcular = document.querySelector("#calcular-salario");
 const $botonReiniciar = document.querySelector("#reiniciar")
 
+function mostrarBotonCalcular(){
+    $botonCalcular.classList.remove("oculto");
+}
+
+function esconderBotonCalcular(){
+    $botonCalcular.classList.add("oculto");
+}
+
 $botonSumarIntegrante.onclick = function () {
     crearInputLabels($contenedor);
+    mostrarBotonCalcular(); 
+
     return false;
 }
 
 $botonQuitarIntegrante.onclick = function () {
     $contenedor.removeChild();
+    esconderBotonCalcular();
     return false;
 }
 
 $botonReiniciar.onclick = function () {
     $contenedor.removeChild();
-    $botonCalcular.classList.toggle("oculto");
+    esconderBotonCalcular();
     return false;
 }
 
