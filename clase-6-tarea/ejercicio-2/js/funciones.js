@@ -1,6 +1,7 @@
 function crearInputLabels(elementoPadre) {
     let labelNuevo = document.createElement("label");
     let inputNuevo = document.createElement("input");
+
     inputNuevo.classList.add("salario");
     labelNuevo.textContent = `ingresá su salario anual: `;
 
@@ -8,10 +9,10 @@ function crearInputLabels(elementoPadre) {
     labelNuevo.appendChild(inputNuevo);
 }
 
-function guardarNumerosEnArray(arrayValoresMixtos) {
+function guardarSalariosEnArray(inputs) {
     const arrayNumeros = [];
-    for (let i = 0; i < arrayValoresMixtos.length; i++) {
-        arrayNumeros[i] = Number(arrayValoresMixtos[i]);
+    for (let i = 0; i < inputs.length; i++) {
+        arrayNumeros[i] = Number(inputs[i].value);
     }
     return arrayNumeros;
 }
