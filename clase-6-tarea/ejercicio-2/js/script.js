@@ -94,6 +94,7 @@ $botonCalcular.onclick = function () {
     let esExito = manejarErrores(erroresSalarios) === 0;
 
     if (esExito) {
+        salarios = salarios.map( salario => Number(salario));
 
         $mensaje.classList.remove("oculto");
         document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
