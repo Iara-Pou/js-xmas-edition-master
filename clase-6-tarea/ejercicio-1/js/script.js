@@ -21,10 +21,17 @@ function manejarErrores(textoError, input) {
     aplicarEstilo(input);
 }
 
+function vaciarErroresAnteriores(){
+    $ContenedorErrores.innerHTML="";
+}
+
 function imprimirErrores(error) {
-    let $ContenedorErrores = document.querySelector("#errores");
     $ContenedorErrores.classList = ""
-    $ContenedorErrores.textContent = error;
+
+    let textoError = document.createElement("p");
+    textoError.textContent = error;
+    $ContenedorErrores.appendChild(textoError);
+
 }
 
 function aplicarEstilo(input) {
@@ -79,6 +86,7 @@ const $botonReinicio = document.querySelector("#reinicio");
 const $botonReinicioGeneral = document.querySelector("#reinicio-general");
 
 let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
+let $ContenedorErrores = document.querySelector("#errores");
 
 $botonCantidad.onclick = function () {
     vaciarContenedorInputs();
@@ -140,6 +148,7 @@ $botonCalcular.onclick = function () {
     } else {
 
         esconderMensajeFinal();
+        vaciarErroresAnteriores();
 
         const keysErrores= Object.keys(erroresEdades);
 
