@@ -1,5 +1,5 @@
 function conseguirInputPorValor(valor){
-    const $inputs = document.getElementsByTagName("input");
+    const $inputs = document.querySelectorAll("input");
     let resultado = [];
     for(let i=0; i<$inputs.length; i++)
         if($inputs[i].value === valor)
@@ -82,6 +82,7 @@ let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
 
 $botonCantidad.onclick = function () {
     vaciarContenedorInputs();
+
     const cantidadIntegrantes = document.querySelector("#integrantes").value;
 
     if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
