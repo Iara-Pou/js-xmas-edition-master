@@ -40,7 +40,7 @@ function esconderErrores() {
     $ContenedorErrores.classList = "oculto"
 }
 
-function crearInputLabels(cantidadIntegrantes, elementoPadre) {
+function crearInputLabels(cantidadIntegrantes) {
     for (let i = 1; i <= cantidadIntegrantes; i++) {
         let labelNuevo = document.createElement("label");
         let inputNuevo = document.createElement("input");
@@ -49,7 +49,7 @@ function crearInputLabels(cantidadIntegrantes, elementoPadre) {
         inputNuevo.classList.add("edad");
         labelNuevo.textContent = `ingresá su edad: `;
 
-        elementoPadre.appendChild(labelNuevo);
+        $contenedorInputs.appendChild(labelNuevo);
         labelNuevo.appendChild(inputNuevo);
     }
 }
