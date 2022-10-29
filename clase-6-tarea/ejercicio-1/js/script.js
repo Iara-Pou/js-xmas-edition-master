@@ -84,8 +84,9 @@ $botonCantidad.onclick = function () {
     vaciarContenedorInputs();
 
     const cantidadIntegrantes = document.querySelector("#integrantes").value;
+    let esExito = validarCantidadIntegrantes(cantidadIntegrantes) === "";
 
-    if (!validarCantidadIntegrantes(cantidadIntegrantes)) {
+    if (esExito) {
 
         esconderErrores()
         esconderMensajeFinal()
