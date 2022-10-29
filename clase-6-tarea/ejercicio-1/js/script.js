@@ -1,13 +1,3 @@
-function conseguirInputPorValor(valor){
-    const $inputs = document.querySelectorAll("input");
-    let resultado = [];
-    for(let i=0; i<$inputs.length; i++)
-        if($inputs[i].value === valor)
-            resultado.push($inputs[i]);
-
-    return resultado;
-}
-
 function guardaEdadesIntegrantes(nodeList) {
     const arrayNuevo = [];
     for (let i = 0; i < nodeList.length; i++) {
@@ -16,38 +6,18 @@ function guardaEdadesIntegrantes(nodeList) {
     return arrayNuevo;
 }
 
-function manejarErrores(textoError, input) {
-    imprimirErrores(textoError);
-    aplicarEstilo(input);
-}
+function manejarErroresCantidad(textoError, input) {
+    $contenedorErrores.classList = "";
 
-function vaciarErroresAnteriores(){
-    $ContenedorErrores.innerHTML="";
-}
+    let contenedor = document.createElement("p");
+    contenedor.textContent = textoError;
+    $contenedorErrores.appendChild(contenedor);
 
-function imprimirErrores(error) {
-    $ContenedorErrores.classList = ""
-
-    let textoError = document.createElement("p");
-    textoError.textContent = error;
-    $ContenedorErrores.appendChild(textoError);
-
-}
-
-function aplicarEstilo(input) {
-    if (typeof input.value === "string"){
-        input.classList.add("input-error");  
-    } else{
-        input.forEach(input => input.classList.add("input-error"))
-    }
-}
-
-function esconderErrores() {
-    let $ContenedorErrores = document.querySelector("#errores");
-    $ContenedorErrores.classList = "oculto"
+    input.classList.add("input-error"); 
 }
 
 function crearInputLabels(cantidadIntegrantes) {
+
     for (let i = 1; i <= cantidadIntegrantes; i++) {
         let labelNuevo = document.createElement("label");
         let inputNuevo = document.createElement("input");
@@ -59,6 +29,55 @@ function crearInputLabels(cantidadIntegrantes) {
         $contenedorInputs.appendChild(labelNuevo);
         labelNuevo.appendChild(inputNuevo);
     }
+
+}
+
+function manejarErroresEdades (erroresEdades){
+    vaciarErroresAnteriores();
+
+    let contadorErrores = 0;
+    const edades = Object.keys(erroresEdades);
+
+    edades.forEach(edad => {
+        const error = erroresEdades[edad];
+
+        if (error) {
+            contadorErrores++;
+
+            $contenedorErrores.classList.remove("oculto");
+
+            let textoError = document.createElement("p");
+            textoError.textContent = error;
+            $contenedorErrores.appendChild(textoError);
+
+            conseguirInputPorValor(edad).forEach(error => error.classList.add("input-error"));
+
+        } else {
+            conseguirInputPorValor(edad).forEach(error => error.classList.remove("input-error"));
+        }
+
+    })
+
+    return contadorErrores;
+}
+
+function conseguirInputPorValor(valor){
+    const $inputs = document.querySelectorAll("input");
+
+    let resultado = [];
+    for(let i=0; i<$inputs.length; i++)
+        if($inputs[i].value === valor)
+            resultado.push($inputs[i]);
+
+    return resultado;
+}
+
+function esconderErrores() {
+    $contenedorErrores.classList = "oculto"
+}
+
+function vaciarErroresAnteriores(){
+    $contenedorErrores.innerHTML="";
 }
 
 function vaciarContenedorInputs() {
@@ -80,13 +99,14 @@ function mostrarBotones() {
     $botonReinicio.classList = " ";
 }
 
+
 const $botonCantidad = document.querySelector("#boton-cantidad");
 const $botonCalcular = document.querySelector("#calculo-edades");
 const $botonReinicio = document.querySelector("#reinicio");
 const $botonReinicioGeneral = document.querySelector("#reinicio-general");
 
 let $contenedorInputs = document.querySelector("#contenedor-inputs-nuevos");
-let $ContenedorErrores = document.querySelector("#errores");
+let $contenedorErrores = document.querySelector("#errores");
 
 $botonCantidad.onclick = function () {
     vaciarContenedorInputs();
@@ -95,22 +115,18 @@ $botonCantidad.onclick = function () {
     let esExito = validarCantidadIntegrantes(cantidadIntegrantes) === "";
 
     if (esExito) {
-
-        esconderErrores()
-        esconderMensajeFinal()
-        
         document.querySelector("#integrantes").classList = "";
-
-        crearInputLabels(cantidadIntegrantes, $contenedorInputs);
-
+        esconderErrores();
+        esconderMensajeFinal();
+        
+        crearInputLabels(cantidadIntegrantes);
         if ($botonCalcular.classList.contains("oculto")) {
             mostrarBotones();
         }
 
     } else {
         const textoError = (validarCantidadIntegrantes(cantidadIntegrantes));
-        manejarErrores(textoError, document.querySelector("#integrantes"));
-
+        manejarErroresCantidad(textoError, document.querySelector("#integrantes"));
     }
 
     return false;
@@ -122,19 +138,14 @@ $botonCalcular.onclick = function () {
     let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     const erroresEdades = {};
-    let contadorErrores = 0;
 
     edadesIntegrantes.forEach(edad => {
-        if (validarEdadIntegrante(edad)) {
             erroresEdades[edad] = validarEdadIntegrante(edad);
-            contadorErrores++;
-        }
     })
 
-    let esExito = contadorErrores === 0;
+    let esExito = manejarErroresEdades(erroresEdades) === 0;
 
     if (esExito) {
-
         esconderErrores();
         esconderBotones();
 
@@ -144,26 +155,12 @@ $botonCalcular.onclick = function () {
         document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
         document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
-
-    } else {
-
-        esconderMensajeFinal();
-        vaciarErroresAnteriores();
-
-        const keysErrores= Object.keys(erroresEdades);
-
-        keysErrores.forEach( key => {
-                manejarErrores(erroresEdades[key], conseguirInputPorValor(key))
-            }
-        ) 
-
-    }
+    } 
 
     return false;
 }
 
 $botonReinicioGeneral.onclick = function () {
-
     document.querySelector("#integrantes").value = "";
     esconderBotones();
     vaciarContenedorInputs();
