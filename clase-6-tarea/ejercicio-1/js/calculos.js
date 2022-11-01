@@ -1,9 +1,9 @@
-function devolverPromedio(array) {
+function devolverPromedio(numeros) {
     let totalSuma = 0;
-    for (let i = 0; i < array.length; i++) {
-        totalSuma += Number(array[i]);
+    for (let i = 0; i < numeros.length; i++) {
+        totalSuma += Number(numeros[i]);
     }
-    return totalSuma / array.length;
+    return totalSuma / numeros.length;
 }
 
 function devolverNumeroMenor(numeros) {
