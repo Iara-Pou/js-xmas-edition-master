@@ -6,21 +6,21 @@ function devolverPromedio(array) {
     return totalSuma / array.length;
 }
 
-function devolverMenor(array) {
-    let numeroMenor = array[0];
+function devolverNumeroMenor(numeros) {
+    let numeroMenor = numeros[0];
     for (let i = 0; i < array.length; i++) {
-        if (array[i] < numeroMenor) {
-            numeroMenor = Number(array[i]);
+        if (numeros[i] < numeroMenor) {
+            numeroMenor = Number(numeros[i]);
         }
     }
     return numeroMenor;
 }
 
-function devolverMayor(array) {
-    let numeroMayor = array[0];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > numeroMayor) {
-            numeroMayor = Number(array[i]);
+function devolverNumeroMayor(numeros) {
+    let numeroMayor = numeros[0];
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] > numeroMayor) {
+            numeroMayor = Number(numeros[i]);
         }
     }
     return numeroMayor;

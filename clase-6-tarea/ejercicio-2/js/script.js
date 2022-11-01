@@ -97,8 +97,8 @@ $botonCalcular.onclick = function () {
         salarios = salarios.map( salario => Number(salario));
 
         $mensaje.classList.remove("oculto");
-        document.querySelector("#mayor-salario").textContent = devolverMayor(salarios);
-        document.querySelector("#menor-salario").textContent = devolverMenor(salarios);
+        document.querySelector("#mayor-salario").textContent = devolverNumeroMayor(salarios);
+        document.querySelector("#menor-salario").textContent = devolverNumeroMenor(salarios);
         document.querySelector("#promedio-salario").textContent = calcularPromedio(salarios);
         document.querySelector("#promedio-mensual-salario").textContent = calcularPromedioMensual(salarios);
 
