@@ -9,7 +9,7 @@ function guardarEdadesIntegrantes(numeros) {
 function manejarErroresCantidad(textoError, input) {
     $contenedorErrores.classList = "";
 
-    let contenedor = document.createElement("p");
+    const contenedor = document.createElement("p");
     contenedor.textContent = textoError;
     $contenedorErrores.appendChild(contenedor);
 

@@ -12,7 +12,8 @@ function calcularPromedio(array) {
 }
 
 function calcularPromedioMensual(array) {
-    return calcularPromedio(array) / 12;
+    const MESES_EN_UN_ANIO = 12;
+    return calcularPromedio(array) / MESES_EN_UN_ANIO;
 }
 
 function devolverMenor(array) {
