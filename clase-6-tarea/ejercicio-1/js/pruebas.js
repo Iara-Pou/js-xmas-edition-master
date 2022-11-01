@@ -1,12 +1,12 @@
 function pruebaDevolverMayor(){
     console.assert(
-        devolverMayor([1,2,3]) === 3, "Devolver mayor no está devolviendo el numero mayor."
+        devolverNumeroMayor([1,2,3]) === 3, "Devolver mayor no está devolviendo el numero mayor."
     )
 }
 
 function pruebaDevolverMenor(){
 console.assert(
-    devolverMenor([1,2,3]) === 1, "Devolver menor no está devolviendo el menor."
+    devolverNumeroMenor([1,2,3]) === 1, "Devolver menor no está devolviendo el menor."
 )    
 }
 
