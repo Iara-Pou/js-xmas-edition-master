@@ -1,7 +1,7 @@
-function guardaEdadesIntegrantes(nodeList) {
+function guardarEdadesIntegrantes(numeros) {
     const arrayNuevo = [];
-    for (let i = 0; i < nodeList.length; i++) {
-        arrayNuevo[i] = nodeList[i].value;
+    for (let i = 0; i < numeros.length; i++) {
+        arrayNuevo[i] = numeros[i].value;
     }
     return arrayNuevo;
 }
@@ -135,7 +135,7 @@ $botonCantidad.onclick = function () {
 $botonCalcular.onclick = function () {
 
     let $mensaje = document.querySelector("#mensaje");
-    let edadesIntegrantes = guardaEdadesIntegrantes(document.querySelectorAll(".edad"));
+    let edadesIntegrantes = guardarEdadesIntegrantes(document.querySelectorAll(".edad"));
 
     const erroresEdades = {};
 
