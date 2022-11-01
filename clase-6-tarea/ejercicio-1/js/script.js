@@ -152,8 +152,8 @@ $botonCalcular.onclick = function () {
         document.querySelectorAll(".edad").forEach(elemento => elemento.classList.remove("input-error"));
 
         $mensaje.classList = "";
-        document.querySelector("#edad-mayor").textContent = devolverMayor(edadesIntegrantes);
-        document.querySelector("#edad-menor").textContent = devolverMenor(edadesIntegrantes);
+        document.querySelector("#edad-mayor").textContent = devolverNumeroMayor(edadesIntegrantes);
+        document.querySelector("#edad-menor").textContent = devolverNumeroMenor(edadesIntegrantes);
         document.querySelector("#edad-promedio").textContent = devolverPromedio(edadesIntegrantes);
     } 
 
