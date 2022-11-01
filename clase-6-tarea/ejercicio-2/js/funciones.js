@@ -1,10 +1,10 @@
-function calcularPromedio(array) {
+function calcularPromedio(numeros) {
     let totalSuma = 0;
     let contador= 0;
     
-    for (let i = 0; i < array.length; i++) {
-        if(array[i]!==0){
-            totalSuma += array[i];
+    for (let i = 0; i < numeros.length; i++) {
+        if(numeros[i]!==0){
+            totalSuma += numeros[i];
             contador++;
         }
     }
@@ -16,21 +16,21 @@ function calcularPromedioMensual(array) {
     return calcularPromedio(array) / MESES_EN_UN_ANIO;
 }
 
-function devolverMenor(array) {
-    let numeroMenor = array[0];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < numeroMenor) {
-            numeroMenor = array[i];
+function devolverNumeroMenor(numeros) {
+    let numeroMenor = numeros[0];
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] < numeroMenor) {
+            numeroMenor = numeros[i];
         }
     }
     return numeroMenor;
 }
 
-function devolverMayor(array) {
-    let numeroMayor = array[0];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > numeroMayor) {
-            numeroMayor = array[i];
+function devolverNumeroMayor(numeros) {
+    let numeroMayor = numeros[0];
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] > numeroMayor) {
+            numeroMayor = numeros[i];
         }
     }
     return numeroMayor;
