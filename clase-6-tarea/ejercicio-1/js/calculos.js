@@ -7,7 +7,7 @@ function devolverPromedio(numeros) {
 }
 
 function devolverNumeroMenor(numeros) {
-    let numeroMenor = numeros[0];
+    let numeroMenor = Number(numeros[0]);
     for (let i = 0; i < numeros.length; i++) {
         if (numeros[i] < numeroMenor) {
             numeroMenor = Number(numeros[i]);
@@ -17,7 +17,7 @@ function devolverNumeroMenor(numeros) {
 }
 
 function devolverNumeroMayor(numeros) {
-    let numeroMayor = numeros[0];
+    let numeroMayor = Number(numeros[0]);
     for (let i = 0; i < numeros.length; i++) {
         if (numeros[i] > numeroMayor) {
             numeroMayor = Number(numeros[i]);
